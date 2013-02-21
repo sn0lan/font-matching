@@ -1,0 +1,45 @@
+/*  SASS imports  */
+
+/* Base */
+@import "base/_normalize";
+@import "base/_base";
+@import "base/_typography";
+
+/*  Layout  
+	For different page layouts on the
+	site just create new files in order
+	to make it easily managable. 
+	ie.
+		_blog.scss
+*/
+
+@import "layout/_skeleton";
+@import "layout/_site";
+
+/*  Modules  
+	Write all the modular SCSS.
+	Divide everything up in here, doesnt matter hoe
+	many files as it will all be compressed when live.
+*/
+
+@import "modules/_elements";
+@import "modules/_forms";
+
+/*  States 
+	Responsive files are to be named with
+	their viewports.
+	ie:
+
+		_480-down.scss
+		_480-up.scss
+		_480-960.scss
+*/
+
+@import "state/_rwd";
+
+/*  Libs  
+	This is any CSS that has come from a plugin.
+	Suach as fancybox, pretty photo, etc.
+*/
+
+@import "lib/_bourbon"
