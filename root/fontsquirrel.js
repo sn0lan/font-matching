@@ -2,7 +2,7 @@ var fs = require('fs'),
     zip = require('zipfile'),
     http = require('http'),
     glob = require('glob');
-//    fontlist = require('./fontsquirrel-fontlist');
+    //fontlist = require('./fontsquirrel-fontlist');
 
 /**
  * Find font by name (from fontsquirrel's family_urlname). Fetch and unzip the
@@ -11,8 +11,8 @@ var fs = require('fs'),
  * fontname - name of font
  * cb(filename) - called back with filename of font file.
  */
-function findfont(fontname, cb) {
-    var fontglob = __dirname + '/font-cache/' + fontname + '/*';
+function findfont(fontname, fonttype, cb) {
+    var fontglob = __dirname + '/font-cache/' + fontname + '/*.' + fonttype;
 
     var files = glob.sync(fontglob);
     /*var fontinfo = fontlist[fontname];
@@ -23,14 +23,16 @@ function findfont(fontname, cb) {
     
     // FIXME - I'm sure I could structure this better but it works for now
     if (! files || ! files.length) {
-        unzip(fontname, findfont);
+        unzip(fontname, function() {
+            findfont(fontname, fonttype, cb)
+        });
     }
     else {
         cb(files[0]);
     }
 }
 
-function unzip(fontname) {
+function unzip(fontname, cb) {
     var zipfile = __dirname + '/font-cache/' + fontname + '.zip';
     console.log('Unzip ' + zipfile);
 
@@ -40,13 +42,13 @@ function unzip(fontname) {
         var fontsdir = filename.replace(/\.zip$/, '');
         fs.mkdirSync(fontsdir);
 
-        console.log(zf);
-
         zf.names.forEach(function(it) {
             if(it.match(/(ttf|woff|eot|svg)$/)) {
                 fs.writeFileSync(fontsdir + '/' + it, zf.readFileSync(it));
             }
         });
+
+        cb();
     }
 
     try {
