@@ -18,7 +18,7 @@ define([
 
 			'click .yes': function(e){
 				e.preventDefault();
-			}
+			},
 
 			'click .no': function(e){
 				e.preventDefault();
