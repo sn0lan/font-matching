@@ -22,9 +22,11 @@
 
 	.fontBox{
 		border-radius: 10px;
+		color: #aaa;
 		float: right;
 		margin: 0 0 20px 0;
 		text-align: center;
+		text-shadow: 0 1px 1px #fff;
 		width: 200px;
 
 		&:first-child{
@@ -32,14 +34,24 @@
 		}
 
 		.typeface{
-			border: 2px solid #666;
+			border: 10px solid #dedede;
+			box-shadow: 0 1px 10px #aaa;
+			color: #aaa;
 			border-radius: 10px;
 			float: left;
-			font-size: 100px;
+			font-size: 80px;
 			line-height: 190px;
 			height: 200px;
-			margin: 0 0 20px 0;
+			margin: 20px 0 30px 0;
+			text-decoration: none;
 			width: 200px;
+
+			text-shadow: 0 1px 1px #fff;
+
+			&:hover{				
+				color: #476675;
+				border-color: #476675;
+			}
 		}
 	}
 }
@@ -60,7 +72,7 @@
 	width: 50px;
 
 	&.yes{		
-		color: #aaa;
+		color: #ccc;
 		cursor: pointer;
 		font-size: 45px;
 		margin: 0 20px 0 0;
@@ -71,7 +83,7 @@
 		-webkit-transition: all 0.5s; /* Safari and Chrome */
 		-o-transition: all 0.5s; /* Opera */
 
-		&:hover{ color: #666; }
+		&:hover{ color: #a4c006; }
 	}
 	
 	&.no{		
@@ -88,14 +100,14 @@
 		-webkit-transition: all 0.5s; /* Safari and Chrome */
 		-o-transition: all 0.5s; /* Opera */
 
-		&:hover{ color: #666; }
+		&:hover{ color: #d21918; }
 	}
 
 	&.new{
 		color: #aaa;
 		cursor: pointer;
 		font-size: 50px;
-		margin: 75px 0 0 70px;
+		margin: 95px 0 0 70px;
 		text-shadow: 1px 1px 1px #eee;
 
 		transition: all 0.5s;
@@ -104,7 +116,7 @@
 		-o-transition: all 0.5s; /* Opera */
 
 		&:hover{
-			color: #666;
+			color: #476675;
 
 			-webkit-transform-origin: center; 
 			-moz-transform-origin: center;

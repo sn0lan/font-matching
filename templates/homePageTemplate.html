@@ -1,14 +1,18 @@
 <div class='font-bar'>
+	<h2>Click on the font to download the fontface kit</h2>
+
 	<div class="font-container">
 		<% _.each(fonts, function(font){ %>
 			<div class="fontBox"> 
-				<div class="typeface" style="font-family: 'AlexBrushRegular';">Aa</div>
+				<% console.log(font) %>
+				<a href="http://www.fontsquirrel.com/fontfacekit/<%= font.get('family_urlname') %>" class="typeface" style="font-family: 'AlexBrushRegular';">Aa</a>
 				<%= font.get('family_name') %>
 			</div>
 		<% }); %>
 	
 		<i class='icon-refresh btn new'></i>
 
+		<h2>Do these fonts work well with eachother?</h2>
 		<div class="btn-container">
 			<i class='icon-ok-circle btn yes'></i>
 			<a href="" class="btn no">X</a>
