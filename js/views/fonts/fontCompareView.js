@@ -10,7 +10,22 @@ define([
 	var FontCompareView = Backbone.View.extend({
 		el: $("#page"),
 		template: _.template(fontCompareTemplate),
+		events: {
+			'click .new': function(e){
+				e.preventDefault();
+				this.render();
+			},
+
+			'click .yes': function(e){
+				e.preventDefault();
+			}
+
+			'click .no': function(e){
+				e.preventDefault();
+			}
+		},
 		initialize: function(){
+			_.bindAll(this, 'render', 'render');
 			that = this;
 			var onDataHandler = function(collection, items){
 				that.render();
@@ -46,9 +61,6 @@ define([
 			return fontsArray;
 		},
 
-		storeCollection: function(){
-			
-		}
 	});
 
 	return FontCompareView;
