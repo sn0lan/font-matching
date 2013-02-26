@@ -13,13 +13,13 @@
 
 	.fontBox{
 		border-radius: 10px;
-		float: left;
+		float: right;
 		margin: 0 0 20px 0;
 		text-align: center;
 		width: 200px;
 
-		&.comp{
-			float: right;
+		&:first-child{
+			float: left;
 		}
 
 		.typeface{

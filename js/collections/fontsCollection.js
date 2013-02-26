@@ -16,6 +16,7 @@ define([
 		parse: function(response){
 			return response;
 		}
+
 	});
 	
 	return FontsCollection;

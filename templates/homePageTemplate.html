@@ -1,13 +1,10 @@
 <div class="font-container">
-	<div class="fontBox"> 
-		<div class="typeface" style="font-family: 'AlexBrushRegular';">Aa</div>
-    
-		Alex Brush Regular 
-	</div>
-	<div class="fontBox comp"> 
-		<div class="typeface" style="font-family: 'GoodDogRegular';">Aa</div>
-		Good Dog Regular 
-	</div>
+	<% _.each(fonts, function(font){ %>
+		<div class="fontBox"> 
+			<div class="typeface" style="font-family: 'AlexBrushRegular';">Aa</div>
+			<%= font.get('family_name') %>
+		</div>
+	<% }); %>
 	
 	<a href="" class="btn new">New</a>
 

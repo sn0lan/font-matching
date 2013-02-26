@@ -719,12 +719,12 @@ h4, .zeta-header {
   width: 600px; }
   .font-container .fontBox {
     border-radius: 10px;
-    float: left;
+    float: right;
     margin: 0 0 20px 0;
     text-align: center;
     width: 200px; }
-    .font-container .fontBox.comp {
-      float: right; }
+    .font-container .fontBox:first-child {
+      float: left; }
     .font-container .fontBox .typeface {
       background: #222;
       border: 2px solid #666666;
