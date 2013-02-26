@@ -1,0 +1,59 @@
+.content-container{
+	clear: both;	
+	margin: 0 auto;
+	text-align: justify;
+	width: 600px;
+}
+
+.font-container{
+	clear: both;
+	display: block;
+	margin: 0 auto;
+	width: 600px;
+
+	.fontBox{
+		border-radius: 10px;
+		float: left;
+		margin: 0 0 20px 0;
+		text-align: center;
+		width: 200px;
+
+		&.comp{
+			float: right;
+		}
+
+		.typeface{
+			background: #222;
+			border: 2px solid #666;
+			border-radius: 10px;
+			float: left;
+			font-size: 100px;
+			line-height: 190px;
+			height: 200px;
+			margin: 0 0 20px 0;
+			width: 200px;
+		}
+	}
+}
+
+.btn-container{
+	clear: left;
+	display: block;
+	margin: 0 auto;
+	width: 120px;
+}
+
+.btn{
+	background: #222;
+	border-radius: 10px;
+	float: left;
+	line-height: 50px;
+	height: 50px;
+	text-align: center;
+	text-decoration: none;
+	width: 50px;
+
+	&.yes{		
+		margin: 0 20px 0 0;
+	}
+}
