@@ -1,8 +1,8 @@
 var fs = require('fs'),
     zip = require('zipfile'),
     http = require('http'),
-    glob = require('glob'),
-    fontlist = require('./fontsquirrel-fontlist');
+    glob = require('glob');
+//    fontlist = require('./fontsquirrel-fontlist');
 
 /**
  * Find font by name (from fontsquirrel's family_urlname). Fetch and unzip the
@@ -12,58 +12,63 @@ var fs = require('fs'),
  * cb(filename) - called back with filename of font file.
  */
 function findfont(fontname, cb) {
-    var zipfile = __dirname + '/font-cache/' + fontname + '.zip',
-        fontglob = __dirname + '/font-cache/' + fontname + '/*';
+    var fontglob = __dirname + '/font-cache/' + fontname + '/*';
 
     var files = glob.sync(fontglob);
-    var fontinfo = fontlist[fontname];
+    /*var fontinfo = fontlist[fontname];
 
     if (!fontinfo) {
         throw ["Unknown font: " + fontname];
-    }
+    }*/
     
     // FIXME - I'm sure I could structure this better but it works for now
     if (! files || ! files.length) {
-        try {
-            unzip(zipfile);
-            findfont(fontname, cb);
-        }
-        catch (e) {
-            if (e.code && e.code == 'ENOENT') {
-                getfont(fontname, zipfile, unzip);
-                findfont(fontname, cb);
-            }
-            else {
-                console.log(e);
-                throw e;
-            }
-        }
+        unzip(fontname, findfont);
     }
     else {
         cb(files[0]);
     }
 }
 
-function unzip(zipfile) {
+function unzip(fontname) {
+    var zipfile = __dirname + '/font-cache/' + fontname + '.zip';
     console.log('Unzip ' + zipfile);
-    // This throws an exception with ENOENT, so we can catch it.
-    fs.statSync(zipfile);
 
-    var zf = new zip.ZipFile(zipfile);
-    var fontsdir = zipfile.replace(/\.zip$/, '');
-    fs.mkdirSync(fontsdir);
+    function reallyunzip(filename) {
+        console.log("Really unzip " + filename);
+        var zf = new zip.ZipFile(filename);
+        var fontsdir = filename.replace(/\.zip$/, '');
+        fs.mkdirSync(fontsdir);
 
-    zf.names.forEach(function(it) {
-        if(it.match(/(ttf|woff|eot|svg)$/)) {
-            fs.writeFileSync(fontsdir + '/' + it, zf.readFileSync(it));
+        console.log(zf);
+
+        zf.names.forEach(function(it) {
+            if(it.match(/(ttf|woff|eot|svg)$/)) {
+                fs.writeFileSync(fontsdir + '/' + it, zf.readFileSync(it));
+            }
+        });
+    }
+
+    try {
+        fs.statSync(zipfile);
+        reallyunzip(zipfile);
+    }
+    catch (e) {
+        if (e.code && e.code == 'ENOENT') {
+            getfont(fontname, zipfile, reallyunzip);
         }
-    });
+        else {
+            console.log(e);
+            throw e;
+        }
+    }
 }
 
 function getfont(fontname, save_to, cb){
-    console.log('Fetch ' + fontname);
-    http.get('http://www.fontsquirrel.com/fontfacekit/' + fontname, function(res) {
+    console.log('Fetch ' + fontname + ' to ' + save_to);
+    http.get("http://www.fontsquirrel.com/fontfacekit/" + fontname, function(res) {
         var outfile = fs.createWriteStream(save_to);
+
         res.on('data', function(chunk) {
             outfile.write(chunk);
         });
@@ -71,6 +76,9 @@ function getfont(fontname, save_to, cb){
             outfile.end();
             cb(save_to);
         });
+    })
+    .on('error', function(e) {
+        console.log('error ' + e.message);
     });
 }
 
