@@ -1,18 +1,19 @@
-<div class="font-container">
-	<% _.each(fonts, function(font){ %>
-		<div class="fontBox"> 
-			<div class="typeface" style="font-family: 'AlexBrushRegular';">Aa</div>
-			<%= font.get('family_name') %>
-		</div>
-	<% }); %>
+<div class='font-bar'>
+	<div class="font-container">
+		<% _.each(fonts, function(font){ %>
+			<div class="fontBox"> 
+				<div class="typeface" style="font-family: 'AlexBrushRegular';">Aa</div>
+				<%= font.get('family_name') %>
+			</div>
+		<% }); %>
 	
-	<a href="" class="btn new">New</a>
+		<i class='icon-refresh btn new'></i>
 
-	<div class="btn-container">
-		<a href="" class="btn yes">Y</a>
-		<a href="" class="btn no">N</a>
+		<div class="btn-container">
+			<i class='icon-ok-circle btn yes'></i>
+			<a href="" class="btn no">X</a>
+		</div>
 	</div>
-
 </div>
 
 <div class="content-container">
