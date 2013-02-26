@@ -22,7 +22,7 @@ define([
 
 			'click .no': function(e){
 				e.preventDefault();
-			}
+			},
 		},
 		initialize: function(){
 			_.bindAll(this, 'render', 'render');
