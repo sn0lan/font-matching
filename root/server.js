@@ -2,7 +2,8 @@ var fs = require('fs');
 var http = require('http');
 var router = require('router')();
 
-var fontsquirrel = require('./fontsquirrel');
+var fontsquirrel = require('./fontsquirrel'),
+    static_files = require('./static-files');
 
 router.get(
     '/font/{font}', function(req, res) {
@@ -16,6 +17,15 @@ router.get(
             });
         });
     }
-);
+)
+.get('/{area}/*', function(req, res){
+    var area = req.params.area;
+    var etc = req.params.wildcard;
+
+    static_files(__dirname + '/../' + area + '/' + etc, res);
+})
+.get('/', function(req, res) {
+    static_files(__dirname + '/../index.html', res);
+});
 
 http.createServer(router).listen(8080);
