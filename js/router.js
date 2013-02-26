@@ -4,8 +4,9 @@ define([
   'underscore',
   'backbone',
   'views/fonts/fontsListView',
+  'views/fonts/fontCompareView',
   'views/homePageView',
-], function($, _, Backbone, FontsList, HomePageView) {
+], function($, _, Backbone, FontsList, FontCompareView) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
@@ -24,8 +25,8 @@ define([
     });
 
     app_router.on('route:defaultAction', function (actions) {
-        var homePageView = new HomePageView();
-        homePageView.render(); 
+        var fontCompareView = new FontCompareView();
+        fontCompareView.render(); 
     });
 
     Backbone.history.start();

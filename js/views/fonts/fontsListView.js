@@ -29,7 +29,7 @@ define([
 		render: function(){
 			this.$el.html(this.template({ fonts: this.collection.models }));
 			return this;
-		}
+		}, 
 	});
 
 	return FontsListView;

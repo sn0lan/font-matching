@@ -1,0 +1,127 @@
+.content-container{
+	clear: both;	
+	margin: 0 auto;
+	text-align: justify;
+	width: 600px;
+}
+
+.font-bar{
+	background: #eee;
+	border-bottom: 2px solid #333;
+	float: left;
+	margin: 0 0 50px 0;
+	padding: 50px 0 30px 0;
+	width: 100%;
+}
+
+.font-container{
+	clear: both;
+	display: block;
+	margin: 0 auto;
+	width: 600px;
+
+	.fontBox{
+		border-radius: 10px;
+		color: #aaa;
+		float: right;
+		margin: 0 0 20px 0;
+		text-align: center;
+		text-shadow: 0 1px 1px #fff;
+		width: 200px;
+
+		&:first-child{
+			float: left;
+		}
+
+		.typeface{
+			border: 10px solid #dedede;
+			box-shadow: 0 1px 10px #aaa;
+			color: #aaa;
+			border-radius: 10px;
+			float: left;
+			font-size: 80px;
+			line-height: 190px;
+			height: 200px;
+			margin: 20px 0 30px 0;
+			text-decoration: none;
+			width: 200px;
+
+			text-shadow: 0 1px 1px #fff;
+
+			&:hover{				
+				color: #476675;
+				border-color: #476675;
+			}
+		}
+	}
+}
+
+.btn-container{
+	clear: left;
+	display: block;
+	margin: 0 auto;
+	width: 120px;
+}
+
+.btn{
+	float: left;
+	line-height: 50px;
+	height: 50px;
+	text-align: center;
+	text-decoration: none;
+	width: 50px;
+
+	&.yes{		
+		color: #ccc;
+		cursor: pointer;
+		font-size: 45px;
+		margin: 0 20px 0 0;
+		text-shadow: 1px 1px 1px #eee;
+
+		transition: all 0.5s;
+		-moz-transition: all 0.5s; /* Firefox 4 */
+		-webkit-transition: all 0.5s; /* Safari and Chrome */
+		-o-transition: all 0.5s; /* Opera */
+
+		&:hover{ color: #a4c006; }
+	}
+	
+	&.no{		
+		color: #aaa;
+		cursor: pointer;
+		font-family: arial;
+		font-size: 40px;
+		font-weight: bold;
+		margin: 0;
+		text-shadow: 1px 1px 1px #eee;
+
+		transition: all 0.5s;
+		-moz-transition: all 0.5s; /* Firefox 4 */
+		-webkit-transition: all 0.5s; /* Safari and Chrome */
+		-o-transition: all 0.5s; /* Opera */
+
+		&:hover{ color: #d21918; }
+	}
+
+	&.new{
+		color: #aaa;
+		cursor: pointer;
+		font-size: 50px;
+		margin: 95px 0 0 70px;
+		text-shadow: 1px 1px 1px #eee;
+
+		transition: all 0.5s;
+		-moz-transition: all 0.5s; /* Firefox 4 */
+		-webkit-transition: all 0.5s; /* Safari and Chrome */
+		-o-transition: all 0.5s; /* Opera */
+
+		&:hover{
+			color: #476675;
+
+			-webkit-transform-origin: center; 
+			-moz-transform-origin: center;
+			-webkit-transform: rotate(-180deg); 
+			-moz-transform: rotate(-180deg);
+		}
+	}
+}
