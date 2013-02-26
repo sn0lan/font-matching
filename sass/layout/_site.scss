@@ -87,10 +87,10 @@
 	}
 	
 	&.no{		
-		color: #aaa;
+		color: #ccc;
 		cursor: pointer;
 		font-family: arial;
-		font-size: 40px;
+		font-size: 25px;
 		font-weight: bold;
 		margin: 0;
 		text-shadow: 1px 1px 1px #eee;
@@ -100,7 +100,7 @@
 		-webkit-transition: all 0.5s; /* Safari and Chrome */
 		-o-transition: all 0.5s; /* Opera */
 
-		&:hover{ color: #d21918; }
+		&:hover{ color: #a32e14; }
 	}
 
 	&.new{
