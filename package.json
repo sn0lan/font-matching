@@ -1,6 +1,6 @@
 {
 	"name" : "font-matching",
-	"version" : 0.0.1,
+	"version" : "0.0.1",
 	"dependencies" : {
 		"glob" : "3.1.21",
 		"router" : "0.6.2",
