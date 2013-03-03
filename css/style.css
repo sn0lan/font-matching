@@ -1456,6 +1456,9 @@ h1, .alpha-header {
   text-align: center;
   width: 100%;
   text-shadow: 1px 1px 1px #222222; }
+  h1 a, .alpha-header a {
+    color: #fff;
+    text-decoration: none; }
 
 h2, .beta-header {
   color: #476675;
@@ -1463,7 +1466,7 @@ h2, .beta-header {
   font-size: 1em;
   font-weight: normal;
   line-height: 1.125em;
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
   text-align: center;
   width: 100%;
   text-shadow: 0 1px 1px white; }
@@ -1724,7 +1727,7 @@ h4, .zeta-header {
   border-bottom: 2px solid #333333;
   float: left;
   margin: 0 0 50px 0;
-  padding: 50px 0 30px 0;
+  padding: 50px 0 0 0;
   width: 100%; }
 
 .font-container {
@@ -1732,6 +1735,8 @@ h4, .zeta-header {
   display: block;
   margin: 0 auto;
   width: 600px; }
+  .font-container.large {
+    width: 100%; }
   .font-container .fontBox {
     border-radius: 10px;
     color: #aaa;
@@ -1758,6 +1763,17 @@ h4, .zeta-header {
       .font-container .fontBox .typeface:hover {
         color: #476675;
         border-color: #476675; }
+    .font-container .fontBox.small {
+      float: left;
+      height: 100px;
+      margin: 10px;
+      width: 100px; }
+      .font-container .fontBox.small .typeface {
+        border-width: 2px;
+        font-size: 40px;
+        line-height: 100px;
+        width: 100px;
+        height: 100px; }
 
 .btn-container {
   clear: left;
@@ -1805,11 +1821,11 @@ h4, .zeta-header {
     .btn.no:hover {
       color: #a32e14; }
   .btn.new {
-    color: #aaa;
+    color: #ccc;
     cursor: pointer;
     font-size: 50px;
     margin: 95px 0 0 70px;
-    text-shadow: 1px 1px 1px #eeeeee;
+    text-shadow: 1px 1px 1px white;
     transition: all 0.5s;
     -moz-transition: all 0.5s;
     /* Firefox 4 */
@@ -1819,10 +1835,33 @@ h4, .zeta-header {
     /* Opera */ }
     .btn.new:hover {
       color: #476675;
+      text-shadow: 1px 1px 1px #666666;
       -webkit-transform-origin: center;
       -moz-transform-origin: center;
       -webkit-transform: rotate(-180deg);
       -moz-transform: rotate(-180deg); }
+
+i.viewMore {
+  color: #ededed;
+  cursor: pointer;
+  float: left;
+  font-size: 50px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  text-align: center;
+  text-shadow: 0 -1px 1px #aaaaaa;
+  width: 100%; }
+
+footer {
+  background: #eee;
+  color: #aaa;
+  border-top: 2px solid #666666;
+  float: left;
+  font-size: 0.8em;
+  margin-top: 50px;
+  width: 100%;
+  padding: 30px 0;
+  text-align: center; }
 
 /*  Modules  
 	Write all the modular SCSS.

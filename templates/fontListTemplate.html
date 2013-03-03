@@ -1,5 +1,7 @@
-<% _.each(fonts, function(font){ %>
-	<div class="font-face">
-		<%= font.get('family_name') %><br />
-	</div>
-<% }); %>
+<div class="font-container large">
+	<% _.each(fonts, function(font){ %>
+		<div class="fontBox small">
+			<a href="http://www.fontsquirrel.com/fontfacekit/<%= font.get('family_urlname') %>" class="typeface" style="font-family: '<%= font.get('family_name')%>';">Aa</a>
+		</div>
+	<% }); %>
+</div>

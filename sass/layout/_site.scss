@@ -20,6 +20,10 @@
 	margin: 0 auto;
 	width: 600px;
 
+	&.large{
+		width: 100%;
+	}
+
 	.fontBox{
 		border-radius: 10px;
 		color: #aaa;
@@ -52,6 +56,22 @@
 				color: #476675;
 				border-color: #476675;
 			}
+		}
+
+		&.small{
+			float: left;
+			height: 100px;
+			margin: 10px;
+			width: 100px;
+				
+			.typeface{
+				border-width: 2px;
+				font-size: 40px;
+				line-height: 100px;
+				width: 100px;
+				height: 100px;
+			}
+
 		}
 	}
 }
